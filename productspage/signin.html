@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin page</title>
+    <link rel="stylesheet" href="signin.css">
+    <style>
+        .info{
+            display:grid;
+            grid-template-columns: repeat(1,1fr);
+            justify-content:center;
+            width: 100%;
+            margin: auto;
+            height: 280px;
+            font-size: 14px;
+            text-align:center;
+       
+        }
+        .info>div{
+            width: 60%;
+            gap:20px;
+        }
+    </style>
+</head>
+
+<form>
+    
+    <input id="email" placeholder="email" type="text">
+    <input placeholder="password" id="password">
+    <input type="submit" value="Submit">
+
+</form>
+<body>
+    
+</body>
+<script>
+    var form=document.querySelector("form")
+    var userData=JSON.parse(localStorage.grtItem("userData"));
+    form.addEventListener("submit",function(event){
+        event.preventDefault();
+
+        var data={
+            email:form.email.value,
+            password:form.password.value,
+        }
+        //console.log(data);
+        if(userData==null){
+            alert("please Create an account");
+        }else if(userData.email==data.email && userData.password==data.password){
+            alert("Sign in Successful");
+
+        localStorage.setItem("userData",JSON.stringify(data))
+        localStorage.setItem("signin",JSON.stringify(userData));
+        window.location.href="index.html"
+        }else{
+         alert("user Does not exist")
+        }
+
+
+    })
+</script>
+</html>

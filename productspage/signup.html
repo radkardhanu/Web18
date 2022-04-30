@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup page</title>
+    <link rel="stylesheet" href="signup.css">
+    <style>
+        .info{
+            display:grid;
+            grid-template-columns: repeat(1,1fr);
+            justify-content:center;
+            width: 100%;
+            margin: auto;
+            height: 280px;
+            font-size: 14px;
+            text-align:center;
+       
+        }
+        .info>div{
+            width: 60%;
+            gap:20px;
+        }
+    </style>
+</head>
+
+<form>
+    <input id="uername" placeholder="usename" type="text">
+    <input id="email" placeholder="email" type="text">
+    <input placeholder="password" id="password">
+    <input type="submit" value="Submit">
+
+</form>
+<body>
+    <h2>masai</h2>
+
+    <div class="info"></div>
+</body>
+<script>
+    var form=document.querySelector("form")
+    var userData=JSON.parse(localStorage.grtItem("userData"));
+    form.addEventListener("submit",function(event){
+        event.preventDefault();
+
+        var data={
+            username:form.username.value,
+            email:form.email.value,
+            password:form.password.value,
+        }
+        //console.log(data);
+
+    })
+</script>
+</html>
